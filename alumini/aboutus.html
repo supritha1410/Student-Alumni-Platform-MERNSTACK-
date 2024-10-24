@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Student-Alumni Relations</title>
+  <link rel="stylesheet" href="aboutus.css">
+  <style>
+    
+    /* Navigation Menu */
+    header nav ul {
+      display: flex;
+      justify-content: space-between; /* Spread items evenly */
+      list-style-type: none; /* Remove bullet points */
+      padding: 0; /* Remove default padding */
+    }
+
+    header nav ul li {
+      margin-right: 5px; /* Adjust spacing between menu items */
+    }
+
+    /* Centering the heading */
+    header h1 {
+      text-align: center; /* Center the text horizontally */
+      font-size: 36px; /* Larger font size */
+      margin-top: 50px; /* Adjust margin to vertically center the heading */
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Student-Alumni Relations</h1>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="first.html">Events</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    
+      
+    <section class="about-us">
+      <h2>Who We Are</h2>
+      <p>The Student-Alumni Relations department fosters a strong connection between current students and alumni. We provide resources and opportunities for students to learn from the experiences of alumni, and for alumni to stay connected with their alma mater.</p>
+      <img src="./assets/1.jpg" alt="Student and alumni shaking hands">
+    </section>
+
+    <section class="mission-vision">
+      <h2>Mission & Vision</h2>
+      <div class="mission">
+        <h3>Mission</h3>
+        <p>To connect current students and alumni to create a lifelong network of support and mentorship.</p>
+      </div>
+      <div class="vision">
+        <h3>Vision</h3>
+        <p>To empower students to achieve their academic and professional goals through meaningful interactions with alumni.</p>
+      </div>
+    </section>
+
+    <section class="team">
+      <h2>Our Team</h2>
+      <p>Our dedicated team is passionate about building strong relationships between students and alumni.</p>
+      <div class="team-member">
+        <img src="./assets/2.jpg" alt="Team member 1">
+        <h4>RAM</h4>
+        <p>HEAD BOY</p>
+      </div>
+      <div class="team-member">
+        <img src="./assets/3.jpg" alt="Team member 2">
+        <h4>SITA</h4>
+        <p>HEAD GIRL</p>
+      </div>
+    </section>
+  </main>
+
+  
+  <script>
+    document.getElementById('studentCard').addEventListener('click', function() {
+      window.location.href = 'student_login.html'; // Redirect to student login page
+    });
+    
+    document.getElementById('alumniCard').addEventListener('click', function() {
+      window.location.href = 'alumni_login.html'; // Redirect to alumni login page
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+/* Reset CSS */
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f8f8; /* Light Gray */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.card {
+    width: 300px;
+    padding: 20px;
+    margin: 20px;
+    background-color: #ffffff; /* White */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Header Styles */
+header {
+    background-color: #1f487e; /* Change Dodger Blue to the same blue as buttons */
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+h1 {
+    margin-top: 10px;
+    font-size: 36px;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #1f487e; /* Dodger Blue */
+    padding: 5px; /* Reduce padding for the footer even further */
+    text-align: center;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #1f487e; /* Change button color to the same blue as header */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+.btn:hover {
+    background-color: #1f487e; /* Darker blue on hover */
+}
+
+/* Additional button styles */
+.btn-student {
+    background-color: #1f487e; /* Green */
+}
+
+.btn-alumni {
+    background-color: #1f487e; /* Blue */
+}

@@ -1,0 +1,71 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9fc; /* Light gray-blue */
+}
+
+header {
+    background-color: #1f487e; /* Deep blue */
+    padding: 20px;
+    text-align: center;
+    margin-top: 10px; /* Add margin to the top */
+}
+
+.logo-container {
+    background-color: #fff; /* White background behind the logo */
+    padding: 10px; /* Adjust padding */
+    border-radius: 50%;
+    display: inline-block; /* Ensure inline display to contain the logo */
+    margin-top: 10px; /* Add margin to the top */
+}
+
+.logo-container img {
+    width: 150px; /* Increased width */
+    height: 150px; /* Increased height */
+    border-radius: 50%;
+}
+
+h1 {
+    color: #fff;
+    margin-top: 10px;
+}
+
+section {
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+h2 {
+    color: #1f487e; /* Deep blue */
+}
+
+p {
+    color: #333; /* Dark gray */
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #1f487e; /* Deep blue */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #2d5db7; /* Darker blue on hover */
+}
+
+footer {
+    background-color: #1f487e; /* Deep blue */
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

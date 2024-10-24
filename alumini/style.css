@@ -1,0 +1,72 @@
+body {
+  background-color: #ffffffb8; /* Dark blue background color */
+  color: #fff; /* White text color */
+  font-family: Arial, sans-serif; /* Use a common sans-serif font */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+.container {
+  margin: 20px auto;
+  text-align: center;
+}
+
+.pie-chart-container {
+  display: inline-block;
+  margin: 20px 10px; /* Add more vertical margin for better spacing */
+  text-align: center;
+  background-color: #fff; /* White background color for each chart container */
+  padding: 20px; /* Add padding for better appearance */
+  border-radius: 10px; /* Increase border radius for smoother corners */
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); /* Add stronger shadow for depth effect */
+  transition: transform 0.3s ease; /* Add transition for hover effect */
+}
+
+.pie-chart-container:hover {
+  transform: scale(1.05); /* Scale up on hover for a subtle interactive effect */
+}
+
+h1 {
+  font-size: 36px; /* Increase heading font size for emphasis */
+}
+
+h2 {
+  font-size: 24px; /* Increase subheading font size for hierarchy */
+}
+
+label {
+  font-size: 16px; /* Increase label font size for readability */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="file"],
+button[type="submit"] {
+  width: calc(100% - 20px); /* Adjust input and button width to fit container padding */
+  margin: 10px 0; /* Add vertical margin for better spacing */
+  padding: 12px; /* Increase input and button padding for better clickability */
+  border: none;
+  border-radius: 5px; /* Add border radius for smoother edges */
+}
+
+button[type="submit"] {
+  background-color: #4CAF50; /* Green button color */
+  color: #fff; /* White text color */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Add transition for hover effect */
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049; /* Darker green color on hover */
+}
+
+.checkbox-container {
+  margin: 10px 0; /* Add vertical margin for better spacing */
+  font-size: 16px; /* Increase checkbox font size for consistency */
+}
+
+.checkbox-container input[type="checkbox"] {
+  margin-right: 5px; /* Add small margin between checkbox and label */
+}

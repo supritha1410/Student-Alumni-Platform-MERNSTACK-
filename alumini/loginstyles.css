@@ -1,0 +1,86 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #1f487e, #1f487edc); /* Gradient background */
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 300px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.card h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.card form {
+  margin-top: 20px;
+}
+
+.card label {
+  display: block;
+  margin-bottom: 5px;
+  text-align: left;
+  color: #555;
+}
+
+.card input[type="text"],
+.card input[type="password"] {
+  width: calc(100% - 40px);
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background-color: transparent;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.card input[type="text"]:focus,
+.card input[type="password"]:focus {
+  border-color: #1f487e; /* Blue border on focus */
+}
+
+.card button[type="submit"] {
+  width: calc(100% - 40px);
+  padding: 12px;
+  background-color: #1f487e;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.card button[type="submit"]:hover {
+  background-color: #1f487e; /* Darker blue color on hover */
+}
+
+.card a {
+  display: block;
+  margin-top: 10px;
+  color: #1f487e;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.card a:hover {
+  color: #1f487e; /* Darker blue color on hover */
+}

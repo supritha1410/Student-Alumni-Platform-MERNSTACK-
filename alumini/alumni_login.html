@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alumni Login</title>
+<link rel="stylesheet" href="loginstyles.css">
+</head>
+<body>
+<div class="container">
+  <div class="card">
+    <h2>Alumni Login</h2>
+    <form id="loginForm" onsubmit="return validateLogin()">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" placeholder="Enter your username">
+      <br>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password">
+      <br>
+      <button type="submit">Login</button>
+    </form>
+    <a href="alumni_signup.html">New User Signup</a>
+  </div>
+</div>
+
+<script>
+  function validateLogin() {
+    // Get username and password input elements
+    const usernameInput = document.getElementById("username");
+    const passwordInput = document.getElementById("password");
+
+    // Validate username (replace with your validation logic)
+    if (usernameInput.value === "") {
+      alert("Please enter your username.");
+      usernameInput.focus();
+      return false;
+    }
+
+    // Validate password (replace with your validation logic)
+    if (passwordInput.value === "") {
+      alert("Please enter your password.");
+      passwordInput.focus();
+      return false;
+    }
+
+    // Handle successful login by redirecting to homepage
+    window.location.href = "home.html";
+    return false; // Prevent form submission
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alumni Search Filters</title>
+<link rel="stylesheet" href="filters.css">
+</head>
+<body>
+<div class="container">
+  <h2>Alumni Search Filters</h2>
+  <div class="filters">
+    <div class="filter-card">
+      <h3>Company Name:</h3>
+      <div id="company-dropdown">
+        <input type="text" id="companyNameInput" placeholder="Search Company">
+        <ul id="companyList"></ul>
+      </div>
+    </div>
+    <div class="filter-card">
+      <h3>Skills:</h3>
+      <div id="skills-container">
+        </div>
+    </div>
+    <div class="filter-card">
+      <h3>Domain:</h3>
+      <input type="text" id="domain" placeholder="Search Domain">
+      <ul id="domainList"></ul>
+    </div>
+    <div class="filter-card">
+      <h3>No. of Years of Experience:</h3>
+      <div id="experience-container">
+        <label for="exp1">1 Year</label>
+        <input type="radio" id="exp1" name="experience" value="1">
+        <label for="exp2">2 Years</label>
+        <input type="radio" id="exp2" name="experience" value="2">
+        <label for="exp3">3 Years</label>
+        <input type="radio" id="exp3" name="experience" value="3">
+        <br>
+        <label for="exp4">4 Years</label>
+        <input type="radio" id="exp4" name="experience" value="4">
+        <label for="exp5">5 Years</label>
+        <input type="radio" id="exp5" name="experience" value="5">
+        <label for="exp6">6 Years</label>
+        <input type="radio" id="exp6" name="experience" value="6">
+        <br>
+        <label for="exp7">7 Years</label>
+        <input type="radio" id="exp7" name="experience" value="7">
+        <label for="exp8">8 Years</label>
+        <input type="radio" id="exp8" name="experience" value="8">
+        <label for="exp9">9 Years</label>
+        <input type="radio" id="exp9" name="experience" value="9">
+        <br>
+        <label for="exp10">10+ Years</label>
+        <input type="radio" id="exp10" name="experience" value="10">
+      </div>
+    </div>
+  </div>
+  <button id="searchButton">Apply Filters</button>
+</div>
+<script src="filters.js"></script>
+</body>
+</html>

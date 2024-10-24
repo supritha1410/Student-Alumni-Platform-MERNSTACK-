@@ -1,0 +1,98 @@
+/* Basic Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header,
+  main {
+    padding: 20px;
+  }
+  
+  h1,
+  h2 {
+    margin: 10px 0;
+  }
+  
+  .chat-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .search-bar {
+    margin-bottom: 10px;
+  }
+  
+  #alumni-search {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+  }
+  
+  #alumni-list {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+  }
+  
+  .chat-window {
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-height: 400px;
+    overflow-y: scroll;
+    margin-top: 20px;
+  }
+  
+  .chat-history {
+    margin-bottom: 20px;
+  }
+  
+  .message {
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .message.sent {
+    background-color: #e0f7fa;
+    text-align: right;
+  }
+  
+  .message.received {
+    background-color: #fff;
+    text-align: left;
+  }
+  
+  .message-form {
+    display: flex;
+  }
+  
+  #message-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .message-form button {
+    background-color: #4CAF50; /* Green color for send button */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .message-form button:hover {
+    background-color: #3e8e41;
+  }
+  
+  .chat-window[hidden] {
+    display: none; /* Initially hide chat window */
+  }

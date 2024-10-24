@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Forum</title>
+    <style>
+        body {
+            background-image: url(./assets/bg-removebg-preview.png);
+            background-repeat: repeat-x;
+            background-position: bottom;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 21px; /* Adjust the padding as needed */
+            background-color: #1f487e; /* Background color */
+            
+        }
+        
+        .header-left {
+    display: flex;
+    align-items: center;
+    flex-grow: 1; /* Allow the header content to take up remaining space */
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.header-right a {
+    color: black;
+    text-decoration: none;
+    margin-left: 10px; /* Adjust spacing between links */
+    transition: color 0.3s;
+}
+
+.header-right a:hover {
+    color: #ccc; /* Hover color */
+}
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color:#ECF6FB; /* Header background color */
+            color: black;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 20px;
+        }
+
+        .header-left span a {
+            color: black;
+            text-decoration: none;
+            margin-right: 10px;
+            transition: color 0.3s;
+        }
+
+        .header-left span a:hover {
+            color: #ccc; /* Hover color */
+        }
+
+        .page-container {
+            padding: 20px;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .card-wrapper {
+            display: flex;
+            transition: transform 0.5s;
+        }
+        
+        .card {
+            position: relative;
+            width: 300px; /* Set fixed width for all cards */
+            height: 400px; /* Set fixed height for all cards */
+            margin: 10px;
+            background-color: #fff; /* Card background color */
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            display: none; /* Initially hide all cards */
+            flex-direction: column;
+            justify-content: center;
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+
+        .card.active {
+            display: flex; /* Show only the active card */
+            box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2); /* Shadow on active card */
+            transform: scale(1.05); /* Scale effect on active card */
+        }
+
+        .card-title {
+            margin: 0;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: black; /* Card title color */
+        }
+
+        .card-text {
+            margin: 0;
+            font-size: 0.9rem;
+            color: black; /* Card text color */
+        }
+
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: black;
+            color: white;
+            border: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            user-select: none;
+            outline: none;
+            border: none;
+            transition: background-color 0.3s;
+            z-index: 1;
+        }
+
+        .nav-arrow:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .nav-arrow.prev {
+            left: 10px;
+        }
+
+        .nav-arrow.next {
+            right: 10px;
+        }
+
+        .footer {
+            padding-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100px;
+            background-color: #ECF6FB; /* Footer background color */
+            color: black;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+            
+        }
+        
+
+        .footer-content {
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+ 
+    <header>
+        <div class="header-left">
+            <img src="./assets/alumni.png" alt="logo" class="logo">
+        </div>
+        <div class="header-right">
+            <span>
+                <a href="home.html">Home</a>
+                <a href="profile.html">Profile</a>
+                <a href="aboutus.html">About Us</a>
+            </span>
+        </div>
+    </header>
+    
+    <div class="page-container">
+        <div class="card-container">
+            <div class="card-wrapper">
+                <div class="card active">
+                    <button class="nav-arrow prev" onclick="showPrevCard()"><</button>
+                    <a href="student.html" class="card-link">
+                        <h2 class="card-title">Student</h2>
+                        <p class="card-text">Explore resources and connect with fellow students.</p>
+                    </a>
+                    <button class="nav-arrow next" onclick="showNextCard()">></button>
+                </div>
+                <div class="card">
+                    <button class="nav-arrow prev" onclick="showPrevCard()"><</button>
+                    <a href="alumni.html" class="card-link">
+                        <h2 class="card-title">Alumni</h2>
+                        <p class="card-text">Stay connected with the alumni community and opportunities.</p>
+                    </a>
+                    <button class="nav-arrow next" onclick="showNextCard()">></button>
+                </div>
+                <div class="card">
+                    <button class="nav-arrow prev" onclick="showPrevCard()"><</button>
+                    <a href="first.html" class="card-link">
+                        <h2 class="card-title">Calendar</h2>
+                        <p class="card-text">Stay updated with important dates and events.</p>
+                    </a>
+                    <button class="nav-arrow next" onclick="showNextCard()">></button>
+                </div>
+                <div class="card">
+                    <button class="nav-arrow prev" onclick="showPrevCard()"><</button>
+                    <a href="analysis.html" class="card-link">
+                        <h2 class="card-title">Analysis</h2>
+                        <p class="card-text">Get insights and analytics for your website with our powerful tracking tools.</p>
+                    </a>
+                    <button class="nav-arrow next" onclick="showNextCard()">></button>
+                </div>
+                <div class="card">
+                    <button class="nav-arrow prev" onclick="showPrevCard()"><</button>
+                    <a href="studentalumini.html" class="card-link">
+                        <h2 class="card-title">Student-Alumni</h2>
+                        <p class="card-text">Connect with Alumni</p>
+                    </a>
+                    <button class="nav-arrow next" onclick="showNextCard()">></button>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+
+    <footer class="footer">
+        <div class="footer-content">
+            <h2>Contact Us</h2>
+            <p>Phone: (123) 456-7890</p>
+            <p>Email: <a href="mailto:info@example.com">info@example.com</a></p>
+            <p>Address: 1234 Main St, Anytown USA</p>
+        </div>
+    </footer>
+    
+    <script>
+        const cards = document.querySelectorAll('.card');
+        let currentCardIndex= 0;
+    
+    function showPrevCard() {
+        cards[currentCardIndex].classList.remove('active');
+        currentCardIndex = (currentCardIndex - 1 + cards.length) % cards.length;
+        cards[currentCardIndex].classList.add('active');
+    }
+
+    function showNextCard() {
+        cards[currentCardIndex].classList.remove('active');
+        currentCardIndex = (currentCardIndex + 1) % cards.length;
+        cards[currentCardIndex].classList.add('active');
+    }
+
+    function moveNextEvery4Seconds() {
+        setInterval(() => {
+            showNextCard();
+        }, 4000);
+    }
+
+    moveNextEvery4Seconds();
+
+    // Add event listeners to arrow buttons
+    const prevArrows = document.querySelectorAll('.prev-arrow');
+    const nextArrows = document.querySelectorAll('.next-arrow');
+
+    prevArrows.forEach(arrow => {
+        arrow.addEventListener('click', showPrevCard);
+    });
+
+    nextArrows.forEach(arrow => {
+        arrow.addEventListener('click', showNextCard);
+    });
+
+    // Show the initial active card
+    cards[currentCardIndex].classList.add('active');
+</script>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1f487e;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .user-card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .user-card h2 {
+            margin: 0;
+            color: #333;
+        }
+
+        .message {
+            border-bottom: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .message:last-child {
+            border: none;
+        }
+
+        .message-options {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .edit-btn,
+        .delete-btn,
+        .reply-btn {
+            margin-left: 10px;
+            cursor: pointer;
+            color: #1f487e;
+        }
+
+        .reply-container {
+            display: none;
+            margin-top: 10px;
+            padding-left: 20px;
+            border-left: 2px solid #ccc;
+        }
+
+        .user-select {
+            margin-bottom: 10px;
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        #messageInput {
+            width: calc(100% - 22px);
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #1f487e;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #a7cdf5;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <select id="userSelect" class="user-select">
+            <option value="user1">User 1</option>
+            <option value="user2">User 2</option>
+            <option value="user3">User 3</option>
+        </select>
+        <textarea id="messageInput" rows="4" placeholder="Type your message here..."></textarea><br>
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <div class="container" id="userContainer">
+        <!-- User cards will be added here -->
+    </div>
+
+    <script>
+        // Map to store messages by user
+        const messages = {};
+
+        function sendMessage() {
+            const userSelect = document.getElementById("userSelect");
+            const selectedUser = userSelect.value;
+            const messageInput = document.getElementById("messageInput");
+            const messageText = messageInput.value.trim();
+
+            if (messageText !== "") {
+                // Add message to the user's message list
+                if (!messages[selectedUser]) {
+                    messages[selectedUser] = [];
+                }
+                messages[selectedUser].push(messageText);
+
+                renderUserCards();
+                messageInput.value = "";
+            }
+        }
+
+        function renderUserCards() {
+            const userContainer = document.getElementById("userContainer");
+            userContainer.innerHTML = "";
+
+            // Render user cards
+            for (const user in messages) {
+                const userCard = document.createElement("div");
+                userCard.classList.add("user-card");
+
+                const userHeading = document.createElement("h2");
+                userHeading.textContent = user;
+
+                const messageList = document.createElement("div");
+
+                messages[user].forEach(message => {
+                    const messageDiv = document.createElement("div");
+                    messageDiv.classList.add("message");
+                    messageDiv.textContent = message;
+
+                    const messageOptions = document.createElement("div");
+                    messageOptions.classList.add("message-options");
+
+                    const editButton = document.createElement("span");
+                    editButton.textContent = "Edit";
+                    editButton.classList.add("edit-btn");
+                    editButton.onclick = function () {
+                        editMessage(user, message);
+                    };
+
+                    const deleteButton = document.createElement("span");
+                    deleteButton.textContent = "Delete";
+                    deleteButton.classList.add("delete-btn");
+                    deleteButton.onclick = function () {
+                        deleteMessage(user, message);
+                    };
+
+                    const replyButton = document.createElement("span");
+                    replyButton.textContent = "Reply";
+                    replyButton.classList.add("reply-btn");
+                    replyButton.onclick = function () {
+                        toggleReply(this);
+                    };
+
+                    const replyContainer = document.createElement("div");
+                    replyContainer.classList.add("reply-container");
+
+                    const replyTextArea = document.createElement("textarea");
+                    replyTextArea.rows = "2";
+                    replyTextArea.placeholder = "Type your reply here...";
+
+                    const replySendButton = document.createElement("button");
+                    replySendButton.textContent = "Send";
+                    replySendButton.onclick = function () {
+                        sendReply(this, user);
+                    };
+
+                    replyContainer.appendChild(replyTextArea);
+                    replyContainer.appendChild(replySendButton);
+
+                    messageOptions.appendChild(editButton);
+                    messageOptions.appendChild(deleteButton);
+                    messageOptions.appendChild(replyButton);
+
+                    messageDiv.appendChild(messageOptions);
+                    messageDiv.appendChild(replyContainer);
+
+                    messageList.appendChild(messageDiv);
+                });
+
+                userCard.appendChild(userHeading);
+                userCard.appendChild(messageList);
+                userContainer.appendChild(userCard);
+            }
+        }
+
+        function editMessage(user, message) {
+            const newText = prompt("Enter new message:", message);
+
+            if (newText !== null) {
+                const index = messages[user].indexOf(message);
+                if (index !== -1) {
+                    messages[user][index] = newText.trim();
+                }
+                renderUserCards();
+            }
+        }
+
+        function deleteMessage(user, message) {
+            const index = messages[user].indexOf(message);
+            if (index !== -1) {
+                messages[user].splice(index, 1);
+                renderUserCards();
+            }
+        }
+
+        function toggleReply(replyBtn) {
+            const replyContainer = replyBtn.nextElementSibling;
+            replyContainer.style.display = replyContainer.style.display === "none" ? "block" : "none";
+        }
+
+        function sendReply(replySendBtn, user) {
+            const replyContainer = replySendBtn.parentElement.querySelector(".reply-container");
+            const replyTextArea = replyContainer.querySelector("textarea");
+            const replyText = replyTextArea.value.trim();
+
+            if (replyText !== "") {
+                // Add reply to the user's message list
+                if (!messages[user]) {
+                    messages[user] = [];
+                }
+                messages[user].push(replyText);
+
+                renderUserCards();
+                replyTextArea.value = "";
+            }
+        }
+
+        // Initial rendering of user cards
+        renderUserCards();
+    </script>
+</body>
+</html>

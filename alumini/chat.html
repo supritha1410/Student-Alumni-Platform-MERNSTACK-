@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Room</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1f487e;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .message {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .message-options {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 5px;
+        }
+
+        .edit-btn,
+        .delete-btn,
+        .reply-btn {
+            margin-left: 10px;
+            cursor: pointer;
+            color: #1f487e;
+        }
+
+        .reply-container {
+            display: none;
+            margin-top: 10px;
+            padding-left: 20px;
+            border-left: 2px solid #ccc;
+        }
+
+        textarea {
+            width: calc(100% - 22px);
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+        }
+
+        button {
+            padding: 8px 16px;
+            background-color: #eaf3fd;
+            color: #000000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #a3caf5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="messageContainer">
+        <!-- Messages will be added here -->
+    </div>
+
+    <div class="container">
+        <textarea id="messageInput" rows="4" placeholder="Type your message here..."></textarea><br>
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        function sendMessage() {
+            const messageInput = document.getElementById("messageInput");
+            const messageText = messageInput.value.trim();
+
+            if (messageText !== "") {
+                const messageContainer = document.getElementById("messageContainer");
+
+                const messageDiv = document.createElement("div");
+                messageDiv.classList.add("message");
+
+                const messageParagraph = document.createElement("p");
+                messageParagraph.textContent = messageText;
+
+                const messageOptions = document.createElement("div");
+                messageOptions.classList.add("message-options");
+
+                const editButton = document.createElement("span");
+                editButton.textContent = "Edit";
+                editButton.classList.add("edit-btn");
+                editButton.onclick = function () {
+                    editMessage(this);
+                };
+
+                const deleteButton = document.createElement("span");
+                deleteButton.textContent = "Delete";
+                deleteButton.classList.add("delete-btn");
+                deleteButton.onclick = function () {
+                    deleteMessage(this);
+                };
+
+                const replyButton = document.createElement("span");
+                replyButton.textContent = "Reply";
+                replyButton.classList.add("reply-btn");
+                replyButton.onclick = function () {
+                    toggleReply(this);
+                };
+
+                const replyContainer = document.createElement("div");
+                replyContainer.classList.add("reply-container");
+
+                const replyTextArea = document.createElement("textarea");
+                replyTextArea.rows = "2";
+                replyTextArea.placeholder = "Type your reply here...";
+
+                const replySendButton = document.createElement("button");
+                replySendButton.textContent = "Send";
+                replySendButton.onclick = function () {
+                    sendReply(this);
+                };
+
+                replyContainer.appendChild(replyTextArea);
+                replyContainer.appendChild(replySendButton);
+
+                messageOptions.appendChild(editButton);
+                messageOptions.appendChild(deleteButton);
+                messageOptions.appendChild(replyButton);
+
+                messageDiv.appendChild(messageParagraph);
+                messageDiv.appendChild(messageOptions);
+                messageDiv.appendChild(replyContainer);
+
+                messageContainer.appendChild(messageDiv);
+
+                messageInput.value = "";
+            }
+        }
+
+        function editMessage(editBtn) {
+            const messageContainer = editBtn.closest(".message");
+            const messageParagraph = messageContainer.querySelector("p");
+            const newText = prompt("Enter new message:");
+
+            if (newText !== null) {
+                messageParagraph.textContent = newText.trim();
+            }
+        }
+
+        function deleteMessage(deleteBtn) {
+            const messageContainer = deleteBtn.closest(".message");
+            messageContainer.remove();
+        }
+
+        function toggleReply(replyBtn) {
+            const messageContainer = replyBtn.closest(".message");
+            const replyContainer = messageContainer.querySelector(".reply-container");
+            replyContainer.style.display = replyContainer.style.display === "none" ? "block" : "none";
+        }
+
+        function sendReply(replySendBtn) {
+            const messageContainer = replySendBtn.closest(".message");
+            const replyTextArea = messageContainer.querySelector("textarea");
+            const replyText = replyTextArea.value.trim();
+
+            if (replyText !== "") {
+                const parentReplyContainer = replySendBtn.closest(".reply-container");
+                const replyDiv = createReplyElement(replyText);
+                if (parentReplyContainer) {
+                    parentReplyContainer.parentNode.insertBefore(replyDiv, parentReplyContainer.nextSibling);
+                } else {
+                    const replyContainer = messageContainer.querySelector(".reply-container");
+                    replyContainer.appendChild(replyDiv);
+                }
+
+                replyTextArea.value = "";
+            }
+        }
+
+        function createReplyElement(replyText) {
+            const replyParagraph = document.createElement("p");
+            replyParagraph.textContent = replyText;
+
+            const replyOptions = document.createElement("div");
+            replyOptions.classList.add("message-options");
+
+            const editButton = document.createElement("span");
+            editButton.textContent = "Edit";
+            editButton.classList.add("edit-btn");
+            editButton.onclick = function () {
+                editMessage(this);
+            };
+
+            const deleteButton = document.createElement("span");
+            deleteButton.textContent = "Delete";
+            deleteButton.classList.add("delete-btn");
+            deleteButton.onclick = function () {
+                deleteMessage(this);
+            };
+
+            const replyButton = document.createElement("span");
+            replyButton.textContent = "Reply";
+            replyButton.classList.add("reply-btn");
+            replyButton.onclick = function () {
+                toggleReply(this);
+            };
+
+            replyOptions.appendChild(editButton);
+            replyOptions.appendChild(deleteButton);
+            replyOptions.appendChild(replyButton);
+
+            const replyDiv = document.createElement("div");
+            replyDiv.classList.add("message");
+            replyDiv.appendChild(replyParagraph);
+            replyDiv.appendChild(replyOptions);
+
+            return replyDiv;
+        }
+    </script>
+</body>
+</html>

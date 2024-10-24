@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="./profile.css">
+    <style>
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .profile-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .profile-photo {
+            flex: 0 0 30%;
+            padding-right: 20px;
+        }
+
+        .profile-photo img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .profile-details {
+            flex: 0 0 65%;
+        }
+
+        .detail {
+            margin-bottom: 20px;
+            border: 1px solid #1f487e;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .detail label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .detail span {
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .detail input[type="text"] {
+            width: calc(100% - 6px);
+            padding: 3px;
+            border: 1px solid #1f487e;
+            border-radius: 3px;
+        }
+
+        .edit-btn {
+            display: block;
+            margin-top: 5px;
+            background-color: #1f487e;
+            color: #ffffff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .edit-btn:hover {
+            background-color: #90c6ff;
+        }
+
+        #upload-photo-input {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Profile</h1>
+        <div class="profile-section">
+            <div class="profile-photo">
+                <img id="profile-photo" src="./assets/id.jpg" alt="Profile Photo">
+                <input type="file" id="upload-photo-input" accept="image/*" onchange="displayUploadedPhoto(event)">
+                <label for="upload-photo-input" class="edit-btn">Upload Photo</label>
+            </div>
+            <div class="profile-details">
+                <div class="detail" id="name-detail">
+                    <label for="name">Name:</label>
+                    <span id="name">John Doe</span>
+                    <button class="edit-btn" onclick="editDetail('name-detail')">Edit</button>
+                </div>
+                <div class="detail" id="email-detail">
+                    <label for="email">Email:</label>
+                    <span id="email">john@example.com</span>
+                    <button class="edit-btn" onclick="editDetail('email-detail')">Edit</button>
+                </div>
+                <div class="detail" id="phone-detail">
+                    <label for="phone">Phone:</label>
+                    <span id="phone">123-456-7890</span>
+                    <button class="edit-btn" onclick="editDetail('phone-detail')">Edit</button>
+                </div>
+                <div class="detail" id="branch-detail">
+                    <label for="branch">Branch:</label>
+                    <span id="branch">Computer Science</span>
+                    <button class="edit-btn" onclick="editDetail('branch-detail')">Edit</button>
+                </div>
+                <div class="detail" id="college-roll-detail">
+                    <label for="college-roll">College Roll Number:</label>
+                    <span id="college-roll">ABC12345</span>
+                    <button class="edit-btn" onclick="editDetail('college-roll-detail')">Edit</button>
+                </div>
+                <div class="detail" id="company-detail">
+                    <label for="company">Company Name:</label>
+                    <span id="company">XYZ Corp</span>
+                    <button class="edit-btn" onclick="editDetail('company-detail')">Edit</button>
+                </div>
+                <div class="detail" id="grad-year-detail">
+                    <label for="grad-year">Graduation Year:</label>
+                    <span id="grad-year">2020</span>
+                    <button class="edit-btn" onclick="editDetail('grad-year-detail')">Edit</button>
+                </div>
+                <!-- Add more details here -->
+            </div>
+        </div>
+    </div>
+    <script>
+        function editProfilePhoto() {
+            // Trigger the click event of the hidden input element
+            document.getElementById('upload-photo-input').click();
+        }
+
+        function displayUploadedPhoto(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function() {
+                const img = document.getElementById('profile-photo');
+                img.src = reader.result;
+            };
+
+            reader.readAsDataURL(file);
+        }
+
+        // Function to edit other profile details
+        function editDetail(detailId) {
+            const detail = document.getElementById(detailId);
+            const label = detail.querySelector('label');
+            const span = detail.querySelector('span');
+            const editBtn = detail.querySelector('.edit-btn');
+
+            // Create an input field for editing
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.value = span.textContent;
+
+            // Replace the span with the input field
+            detail.replaceChild(input, span);
+
+            // Change label text to indicate editing mode
+            label.textContent = 'New ' + label.textContent.replace(':', '') + ':';
+
+            // Change the text of the edit button to 'Save'
+            editBtn.textContent = 'Save';
+
+            // Change the onclick behavior of the edit button
+            editBtn.onclick = function() {
+                // Check if the input value is not empty
+                if (input.value.trim().length > 0) {
+                    // Update the span with the new value
+                    span.textContent = input.value;
+
+                    // Replace the input field with the updated span
+                    detail.replaceChild(span, input);
+
+                    // Change the label text back to original
+                    label.textContent = label.textContent.replace('New', '');
+
+                    // Change the text of the edit button back to 'Edit'
+                    editBtn.textContent = 'Edit';
+                }
+            };
+        }
+    </script>
+</body>
+</html>

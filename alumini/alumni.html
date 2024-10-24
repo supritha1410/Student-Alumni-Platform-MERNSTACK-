@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Profiles</title>
+    <link rel="stylesheet" href="styling.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color:#1f487e;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header .logo {
+            font-size: 24px;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar input[type="text"] {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-right: 10px;
+        }
+
+        .filter-option {
+            color: #fff;
+            text-decoration: none;
+            background-color: #555;
+            padding: 8px 12px;
+            border-radius: 5px;
+        }
+
+        .scrollable-container {
+            max-height: calc(100vh - 120px); /* Adjust to account for header height */
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .profiles-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            gap: 20px;
+        }
+
+        .card {
+            width: calc(30% - 20px); /* Adjust the width based on your preference */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #fff;
+        }
+
+        .card .picture img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .card .main-content {
+            padding: 20px;
+        }
+
+        .card .main-content h3,
+        .card .main-content h4 {
+            margin: 0;
+            padding: 0;
+        }
+
+        .card .main-content span {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .card .social {
+            padding: 0 20px 20px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .card .social li {
+            list-style-type: none;
+        }
+
+        .card .social li a {
+            display: block;
+            font-size: 20px;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .card .skills {
+            padding: 0 20px 20px;
+        }
+
+        .card .skills h6 {
+            margin-bottom: 10px;
+        }
+
+        .card .skills ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .card .skills ul li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <a href="home.html" class="logo">Alumni Profiles</a>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+            <a href="./filters.html" class="filter-option">Filter</a>
+        </div>
+    </div>
+
+    <div class="scrollable-container">
+        <div class="profiles-container">
+            <!-- Profile cards go here -->
+            <!-- Profile 1 -->
+            <div class="card">
+                <div class="picture">
+                    <img class="img-fluid" src="./assets/id.jpg">
+                </div>
+                <div class="main-content">
+                    <h3 class="name">Person 1</h3>
+                    <span><i class="company name"></i>AMAZON</span>
+                    <h4 class="title">Frontend Developer</h4>
+                </div>
+                <ul class="social">
+                    <li><a href="https://github.com/spoorthy2405" class="fa fa-github"></a></li>
+                    <li><a href="https://twitter.com/home" class="fa fa-twitter"></a></li>
+                    <li><a href="https://www.instagram.com/hariharan__joga?igsh=MTR6bXp0YTUwMjdscA==" class="fa fa-instagram"></a></li>
+                    <li><a href="https://www.linkedin.com/in/spoorthy-mudragada-74b897260" class="fa fa-LinkedIn"></a></li>
+                </ul>
+                <div class="skills">
+                    <h6>Skills</h6>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                        <li>React</li>
+                        <li>Git</li>
+                        <li>VS Code</li>
+                    </ul>
+                </div>
+                <a href="person1.html">VIEW MORE..</a>
+            </div>
+
+            <div class="card">
+                <div class="picture">
+                    <img class="img-fluid" src="./assets/id.jpg">
+                </div>
+                <div class="main-content">
+                    <h3 class="name">Person 1</h3>
+                    <span><i class="company name"></i>AMAZON</span>
+                    <h4 class="title">Frontend Developer</h4>
+                </div>
+                <ul class="social">
+                    <li><a href="https://github.com/spoorthy2405" class="fa fa-github"></a></li>
+                    <li><a href="https://twitter.com/home" class="fa fa-twitter"></a></li>
+                    <li><a href="https://www.instagram.com/hariharan__joga?igsh=MTR6bXp0YTUwMjdscA==" class="fa fa-instagram"></a></li>
+                    <li><a href="https://www.linkedin.com/in/spoorthy-mudragada-74b897260" class="fa fa-LinkedIn"></a></li>
+                </ul>
+                <div class="skills">
+                    <h6>Skills</h6>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                        <li>React</li>
+                        <li>Git</li>
+                        <li>VS Code</li>
+                    </ul>
+                </div>
+                <a href="person1.html" >VIEW MORE..</a>
+            </div>
+
+            <div class="card">
+                <div class="picture">
+                    <img class="img-fluid" src="./assets/id.jpg">
+                </div>
+                <div class="main-content">
+                    <h3 class="name">Person 1</h3>
+                    <span><i class="company name"></i>AMAZON</span>
+                    <h4 class="title">Frontend Developer</h4>
+                </div>
+                <ul class="social">
+                    <li><a href="https://github.com/spoorthy2405" class="fa fa-github"></a></li>
+                    <li><a href="https://twitter.com/home" class="fa fa-twitter"></a></li>
+                    <li><a href="https://www.instagram.com/hariharan__joga?igsh=MTR6bXp0YTUwMjdscA==" class="fa fa-instagram"></a></li>
+                    <li><a href="https://www.linkedin.com/in/spoorthy-mudragada-74b897260" class="fa fa-LinkedIn"></a></li>
+                </ul>
+                <div class="skills">
+                    <h6>Skills</h6>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                        <li>React</li>
+                        <li>Git</li>
+                        <li>VS Code</li>
+                    </ul>
+                </div>
+                <a href="person1.html">VIEW MORE..</a>
+            </div>
+
+            <div class="card">
+                <div class="picture">
+                    <img class="img-fluid" src="./assets/id.jpg">
+                </div>
+                <div class="main-content">
+                    <h3 class="name">Person 1</h3>
+                    <span><i class="company name"></i>AMAZON</span>
+                    <h4 class="title">Frontend Developer</h4>
+                </div>
+                <ul class="social">
+                    <li><a href="https://github.com/spoorthy2405" class="fa fa-github"></a></li>
+                    <li><a href="https://twitter.com/home" class="fa fa-twitter"></a></li>
+                    <li><a href="https://www.instagram.com/hariharan__joga?igsh=MTR6bXp0YTUwMjdscA==" class="fa fa-instagram"></a></li>
+                    <li><a href="https://www.linkedin.com/in/spoorthy-mudragada-74b897260" class="fa fa-LinkedIn"></a></li>
+                </ul>
+                <div class="skills">
+                    <h6>Skills</h6>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                        <li>React</li>
+                        <li>Git</li>
+                        <li>VS Code</li>
+                    </ul>
+                </div>
+                <a href="person1.html">VIEW MORE..</a>
+            </div>
+
+            <div class="card">
+                <div class="picture">
+                    <img class="img-fluid" src="./assets/id.jpg">
+                </div>
+                <div class="main-content">
+                    <h3 class="name">Person 1</h3>
+                    <span><i class="company name"></i>AMAZON</span>
+                    <h4 class="title">Frontend Developer</h4>
+                </div>
+                <ul class="social">
+                    <li><a href="https://github.com/spoorthy2405" class="fa fa-github"></a></li>
+                    <li><a href="https://twitter.com/home" class="fa fa-twitter"></a></li>
+                    <li><a href="https://www.instagram.com/hariharan__joga?igsh=MTR6bXp0YTUwMjdscA==" class="fa fa-instagram"></a></li>
+                    <li><a href="https://www.linkedin.com/in/spoorthy-mudragada-74b897260" class="fa fa-LinkedIn"></a></li>
+                </ul>
+                <div class="skills">
+                    <h6>Skills</h6>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                        <li>React</li>
+                        <li>Git</li>
+                        <li>VS Code</li>
+                    </ul>
+                </div>
+                <a href="person1.html">VIEW MORE..</a>
+            </div>
+
+
+            
+            <!-- Include other profiles as needed -->
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/dd8c49730d.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

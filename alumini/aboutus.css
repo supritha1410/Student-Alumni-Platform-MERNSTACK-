@@ -1,0 +1,71 @@
+body {
+  background-color: #1f487e; /* Background color for the entire page */
+  padding: 20px; /* Add some padding to the body */
+}
+
+.mission-vision {
+  text-decoration-color: black;
+  margin: 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
+  text-align: center; /* Center text within the section */
+  margin-bottom: 20px;
+  padding: 40px;
+  border-radius: 5px; /* Add a subtle border radius for visual interest */
+  background-color:white; /* Light gray background */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a slight shadow for depth */
+}
+
+.mission,
+.vision {
+  flex: 0 1 100%; /* Set flex basis to 100% for each section to take full width */
+  padding: 10px;
+}
+
+.mission h2,
+.vision h2 {
+  margin-bottom: 5px;
+  color:black; /* Dark gray for headings */
+}
+
+.mission p,
+.vision p {
+  color:black; /* Lighter gray for text */
+}
+
+img {
+  display: block;
+  margin: 0 auto; /* Center images horizontally */
+}
+
+h4 {
+  text-align: center; /* Center h4 headings horizontally */
+}
+
+.team-member {
+  text-align: center; /* Center the content within team member div */
+}
+
+.about-us,
+.team {
+  text-align: center; /* Center the content within about-us and team sections */
+}
+header nav ul li a {
+  color: white; /* Set text color to white for navigation links */
+}
+/* Set color for all text except for the mission and vision section */
+/* Set color for all text except for the mission and vision section */
+body {
+  color: white;
+}
+/* Set color for the mission and vision section headings */
+
+.mission h3,
+.vision h3 {
+  color: black; /* Set color to black for mission and vision headings */
+}
+.mission-vision h2 {
+  color: black; /* Set color to black for the mission & vision heading */
+}
